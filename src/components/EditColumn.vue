@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { reactive } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useKanBanStore } from '../stores/Kanban'
@@ -14,9 +14,8 @@ const closeComponent = () => {
   kanbanStore.changeState('')
 }
 
-const updateColor = (e) => {
-  localState.color = e.target.value
-  console.log('localState.color', localState.color)
+const updateColor = (e: Event) => {
+  localState.color = (e.target as HTMLInputElement).value
 }
 const updateColumn = () => {
   const currentBoard = kanbanStore.getCurrentBoard()

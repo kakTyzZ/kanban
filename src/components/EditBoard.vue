@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useKanBanStore } from '../stores/Kanban'
@@ -12,8 +12,12 @@ const closeComponent = () => {
 }
 
 const createNewBoardOrColumn = () => {
-  kanbanStore.boardsList.find((board) => board.title === kanbanStore.currentBoard).title =
-    localState.value
+  const foundBoard = kanbanStore.boardsList.find(
+    (board) => board.title === kanbanStore.currentBoard
+  )
+  if (foundBoard) {
+    foundBoard.title = localState.value
+  }
 
   kanbanStore.componentsRenderState = ''
 }

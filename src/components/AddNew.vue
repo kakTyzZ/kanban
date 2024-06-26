@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useKanBanStore } from '../stores/Kanban'
@@ -21,7 +21,13 @@ const createNewBoardOrColumn = () => {
   if (props.title === 'Add New Board') {
     kanbanStore.addBoard({
       title: localState.value,
-      columns: []
+      columns: [
+        {
+          name: 'To do',
+          color: 'green',
+          tasks: []
+        }
+      ]
     })
     kanbanStore.currentBoard = localState.value
   }
@@ -29,7 +35,7 @@ const createNewBoardOrColumn = () => {
   if (props.title === 'Create New Column') {
     const board = kanbanStore.boardsList.find((el) => el.title === kanbanStore.currentBoard)
 
-    board.columns.push({
+    board!.columns.push({
       name: localState.value,
       color: 'green',
       tasks: []

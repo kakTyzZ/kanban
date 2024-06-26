@@ -1,15 +1,19 @@
-import { ref, reactive } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
+
+interface ITask {
+  title: string
+  description: string
+}
+interface IColumn {
+  name: string
+  color: string
+  tasks: ITask[]
+}
 
 interface IBoard {
   title: string
-  columns: {
-    title: string
-    tasks: {
-      title: string
-      description: string
-    }[]
-  }[]
+  columns: IColumn[]
 }
 
 export const useKanBanStore = defineStore('kanban', () => {
@@ -54,35 +58,6 @@ export const useKanBanStore = defineStore('kanban', () => {
             {
               title: 'Погулять',
               description: 'Погулять в лесу'
-            }
-          ]
-        }
-      ]
-    },
-    {
-      title: 'Board 2',
-      columns: [
-        {
-          name: 'Column 111111111111',
-          color: 'red',
-          tasks: [
-            {
-              title: 'Task 111111111111111',
-              description: 'Description 1111111111111111111'
-            },
-            {
-              title: 'Taskkkkkkkkk',
-              description: 'Descriptionnnnnnnnnnnnnnnn'
-            }
-          ]
-        },
-        {
-          name: 'Column 2222222222222222',
-          color: 'yellow',
-          tasks: [
-            {
-              title: 'Task 222222222222222',
-              description: 'Description 222222222222222'
             }
           ]
         }

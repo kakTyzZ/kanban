@@ -48,7 +48,7 @@ function deleteThisTask() {
 
 <template>
   <div
-    class="absolute right-0 bg-gray-600 rounded p-4 text-xl border border-white h-full max-w-[250px] w-full text-white z-50"
+    class="absolute right-0 bg-gray-600 rounded p-4 text-xl border border-white h-full max-w-[20%] w-full text-white z-50"
   >
     <div class="flex flex-col">
       <div class="">

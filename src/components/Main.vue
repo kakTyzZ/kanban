@@ -79,7 +79,7 @@ const el = ref<HTMLElement | null>(null)
         </ul>
       </div>
 
-      <div class="flex gap-2 items-center">
+      <div class="flex gap-2 items-center mr-[2%]">
         <button
           @click="kanbanStore.changeState('newTask')"
           class="bg-gray-500 px-3 py-1 opacity cursor-pointer rounded-xl hover:text-purple-500 hover:shadow hover:shadow-red-200 hover:bg-gray-300"
